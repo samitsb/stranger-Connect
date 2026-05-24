@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="login-panel">
+        <section class="brand">
+            <h1>Sign In</h1>
+            <p>Minimal login for users 18+</p>
+        </section>
+
+        <form id="login-form" class="login-form" autocomplete="off">
+            <label>
+                <span>Name</span>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </label>
+
+            <label>
+                <span>Date of Birth</span>
+                <input type="date" id="dob" name="dob" required>
+            </label>
+
+            <label>
+                <span>Age</span>
+                <input type="text" id="age" name="age" readonly placeholder="Auto-calculated">
+            </label>
+
+            <label>
+                <span>Email</span>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </label>
+
+            <label>
+                <span>Phone Number</span>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9\-\s]+" required>
+            </label>
+
+            <button type="submit" id="submit-btn">Continue</button>
+            <p class="hint" id="hint-text">Please enter your date of birth to calculate age.</p>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
