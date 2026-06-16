@@ -1,2 +1,2 @@
 # stranger-Connect
-My fiirst project for my Bachelours
+My fiirst project for my bachelor

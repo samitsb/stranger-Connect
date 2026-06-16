@@ -1,0 +1,24 @@
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Tahoma, Geneva, Verdana, sans-serif}
+html,body{height:100%;}
+body{background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);min-height:100vh;display:block;color:#0f172a}
+.chat-panel{width:100%;height:100vh;max-width:100%;background:#fff;border-radius:0;box-shadow:none;overflow:hidden;display:flex;flex-direction:column}
+.chat-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid #eef2ff}
+.controls{display:flex;gap:12px;align-items:center}
+.control{display:flex;flex-direction:column;font-size:0.9rem;color:#374151}
+.control select,.control input{padding:8px 10px;border-radius:8px;border:1px solid #e6edf3;background:#fff;min-width:140px}
+.anon-control{flex-direction:row;gap:8px;align-items:center}
+.actions{display:flex;gap:8px}
+.btn{background:#2563eb;color:#fff;border:none;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+.btn.disabled{opacity:0.5;cursor:not-allowed;background:#94b3ff}
+.match-info{display:flex;gap:18px;padding:14px 24px;background:#f8fafc;border-bottom:1px solid #eef2ff;color:#334155}
+.chat-area{padding:18px 18px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.messages{list-style:none;flex:1;overflow:auto;padding:6px;display:flex;flex-direction:column;gap:10px}
+.messages li{max-width:70%;padding:10px 12px;border-radius:12px}
+.messages li.outgoing{align-self:flex-end;background:#2563eb;color:#fff}
+.messages li.incoming{align-self:flex-start;background:#f1f5f9;color:#0f172a;border:1px solid #e6eef8}
+.msg-form{display:flex;gap:8px}
+.msg-form input{flex:1;padding:10px;border-radius:10px;border:1px solid #e6eef8}
+.msg-form button{padding:10px 14px;border-radius:10px;border:none;background:#0ea5a4;color:#fff}
+@media(max-width:720px){.controls{flex-direction:column;align-items:stretch}.actions{justify-content:center}}
+
+.status-system{font-style:italic;color:#6b7280;font-size:0.95rem}
