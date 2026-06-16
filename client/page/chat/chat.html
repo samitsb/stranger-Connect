@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>StrangerConnect — Chat</title>
+	<link rel="stylesheet" href="style.css">
+	</head>
+<body>
+	<main class="chat-panel">
+		<header class="chat-header">
+			<div class="controls">
+				<label class="control">
+					<span>Country</span>
+					<select id="country-select">
+						<option value="any">Any</option>
+						<option value="us">United States</option>
+						<option value="uk">United Kingdom</option>
+						<option value="ca">Canada</option>
+						<option value="au">Australia</option>
+						<option value="in">India</option>
+                        <option value="np">Nepal</option>
+					</select>
+				</label>
+
+				<label class="control name-control">
+					<span>Your name</span>
+					<input id="user-name" placeholder="Display name">
+				</label>
+
+				<label class="control anon-control">
+					<input type="checkbox" id="anon-checkbox">
+					<span>Remain anonymous</span>
+				</label>
+			</div>
+
+			<div class="actions">
+				<button id="connect-btn" class="btn">Connect</button>
+				<button id="skip-btn" class="btn disabled" disabled>Skip</button>
+				<button id="stop-btn" class="btn disabled" disabled>Stop</button>
+			</div>
+		</header>
+
+		<section class="match-info">
+			<div id="status">Status: Not connected</div>
+			<div id="partner">Partner: —</div>
+		</section>
+
+		<section class="chat-area">
+			<ul id="messages" class="messages"></ul>
+			<form id="msg-form" class="msg-form">
+				<input id="msg-input" placeholder="Type a message" autocomplete="off">
+				<button id="send-btn" class="btn" type="submit" disabled>Send</button>
+			</form>
+		</section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
