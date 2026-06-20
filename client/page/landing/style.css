@@ -94,6 +94,17 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-aboutus {
+    background: #764ba2;
+    color: #ffffff;
+    align-items: center;
+}
+
+.btn-aboutus:hover {
+    background: #667eea;
+    transform: translateY(-2px);
+}
+
 /* Hero Section */
 .hero {
     padding: 80px 0;
@@ -154,13 +165,14 @@ body {
     font-size: 1.1rem;
 }
 
-/* Founders Section */
+
+
 
 
 /* Footer */
 .footer {
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 20px;
     color: rgba(255, 255, 255, 0.8);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 60px;
