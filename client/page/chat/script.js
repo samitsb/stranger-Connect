@@ -18,6 +18,48 @@ const countries = {
     any: 'Any', us: 'United States', uk: 'United Kingdom', ca: 'Canada', au: 'Australia', in: 'India', np: 'Nepal'
 };
 
+const replyRules = [
+    { patterns: ['hi', 'namaste'], reply: 'Hey! I’m happy to chat with you.' },
+    { patterns: ['how are you','k xa'], reply: 'I’m doing great, thanks for asking! How are you?' },
+    { patterns: ['what is your name','tero naam k ho'], reply: 'I’m just a stranger here, but you can call me Stranger.' },
+    { patterns: ['where are you from','kata bata ho'], reply: 'I’m from somewhere around the world. What about you?' },
+    { patterns: ['bye', 'goodbye', 'see you', 'talk to you later','la'], reply: 'Goodbye! Take care and talk to you soon.' },
+    { patterns: ['joke', 'tell me a joke', 'make me laugh'], reply: 'Sure! Why don’t skeletons fight each other? They don’t have the guts.' }
+];
+
+function normalizeText(text){
+    return text.toLowerCase()
+        .replace(/what's/g, 'what is')
+        .replace(/whats/g, 'what is')
+        .replace(/you're/g, 'you are')
+        .replace(/i'm/g, 'i am')
+        .replace(/don't/g, 'do not')
+        .replace(/can't/g, 'can not')
+        .replace(/won't/g, 'will not')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function getStrangerReply(message){
+    const normalized = normalizeText(message);
+    if(!normalized) return 'Nice to meet you! Tell me more about yourself.';
+
+    const matchedRule = replyRules.find(rule =>
+        rule.patterns.some(pattern => {
+            const normalizedPattern = normalizeText(pattern);
+            if(!normalizedPattern) return false;
+
+            const patternWords = normalizedPattern.split(' ');
+            const hasAllWords = patternWords.length > 1 && patternWords.every(word => normalized.includes(word));
+
+            return normalized === normalizedPattern || normalized.includes(normalizedPattern) || hasAllWords;
+        })
+    );
+
+    return matchedRule ? matchedRule.reply : 'Nice to meet you! Tell me more about yourself.';
+}
+
 function choosePartnerCountry(pref){
     if(pref === 'any'){
         const keys = Object.keys(countries).filter(k=>k!=='any');
@@ -51,12 +93,18 @@ function updateUI(){
     }
 }
 
+function scrollMessagesToBottom(){
+    requestAnimationFrame(() => {
+        messages.scrollTop = messages.scrollHeight;
+    });
+}
+
 function systemMessage(text){
     const li = document.createElement('li');
     li.className = 'status-system';
     li.textContent = text;
     messages.appendChild(li);
-    messages.scrollTop = messages.scrollHeight;
+    scrollMessagesToBottom();
 }
 
 function appendMessage(text, cls){
@@ -64,7 +112,7 @@ function appendMessage(text, cls){
     li.className = cls;
     li.textContent = text;
     messages.appendChild(li);
-    messages.scrollTop = messages.scrollHeight;
+    scrollMessagesToBottom();
 }
 
 function startMatch(){
@@ -110,9 +158,10 @@ msgForm.addEventListener('submit', e=>{
     appendMessage(`${displayName}: ${txt}`, 'outgoing');
     msgInput.value = '';
 
-    // Simulate partner reply
+    // Simulate partner reply based on the message content
     setTimeout(()=>{
-        appendMessage(`Stranger: Hey from ${countries[partner.country] || 'somewhere'}!`, 'incoming');
+        const reply = getStrangerReply(txt);
+        appendMessage(`Stranger: ${reply}`, 'incoming');
     }, 800 + Math.random()*1000);
 });
 

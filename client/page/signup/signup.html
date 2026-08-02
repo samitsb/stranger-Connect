@@ -17,6 +17,7 @@
             <label>
                 <span>Name</span>
                 <input type="text" id="name" name="name" placeholder="Your full name" required>
+                <p class="hint" id="name-hint">Please enter your full name.</p>
             </label>
 
             <label>
@@ -32,17 +33,19 @@
             <label>
                 <span>Email</span>
                 <input type="email" id="email" name="email" placeholder="you@example.com" required>
-            </label>
-
-            <label>
-                <span>Phone Number</span>
-                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9\-\s]+" required>
+                <p class="hint" id="email-hint">Please enter a valid email address.</p>
             </label>
 
             <label>
                 <span>Password</span>
-                <input type="password" name="password" placeholder="Create a strong password" required>
+                <input type="password" id="password" name="password" placeholder="Create a strong password" required>
                 <p class="hint" id="password-hint">Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character.</p>
+            </label>
+
+            <label>
+                <span>Confirm Password</span>
+                <input type="password" id="password-confirm" name="password-confirm" placeholder="same password" required>
+                <p class="hint" id="confirm-password-hint">Please confirm your password.</p>
             </label>
 
             <button type="submit" id="submit-btn">Continue</button>
