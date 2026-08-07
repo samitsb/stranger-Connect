@@ -2,7 +2,12 @@
 html,body{height:100%}
 body{min-height:100vh;background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%);color:#0f172a;display:flex;align-items:center;justify-content:center;padding:20px}
 .chat-panel{width:100%;max-width:980px;height:min(92vh,900px);background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 20px 45px rgba(15,23,42,0.08);overflow:hidden;display:flex;flex-direction:column}
-.chat-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid #eef2ff;background:#fcfdff}
+.chat-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid #eef2ff;background:#fcfdff;gap:16px}
+.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:#0f172a;font-weight:700;letter-spacing:.02em}
+.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);color:#fff;font-size:0.95rem;box-shadow:0 10px 22px rgba(37,99,235,0.18)}
+.brand-text{font-size:1rem}
+.brand-link:hover .brand-mark{transform:scale(1.04)}
+.brand-link:hover .brand-text{color:#2563eb}
 .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .control{display:flex;flex-direction:column;font-size:0.9rem;color:#475569;gap:4px}
 .control select,.control input{padding:9px 11px;border-radius:10px;border:1px solid #d7e2ee;background:#fff;min-width:140px;font-size:0.95rem}
@@ -23,4 +28,4 @@ body{min-height:100vh;background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%)
 .msg-form button{padding:11px 16px;border-radius:12px;border:none;background:#0f766e;color:#fff}
 .msg-form button:hover{background:#0c5d57}
 .status-system{font-style:italic;color:#64748b;font-size:0.95rem}
-@media(max-width:720px){body{padding:10px}.chat-panel{height:100vh;max-height:none;border-radius:16px}.chat-header{flex-direction:column;align-items:stretch;gap:12px}.controls{align-items:stretch}.actions{justify-content:center}.match-info{flex-direction:column;gap:6px}.msg-form{flex-direction:column}}
+@media(max-width:720px){body{padding:10px}.chat-panel{height:100vh;max-height:none;border-radius:16px}.chat-header{flex-direction:column;align-items:stretch;gap:12px}.brand-link{justify-content:center}.controls{align-items:stretch}.actions{justify-content:center}.match-info{flex-direction:column;gap:6px}.msg-form{flex-direction:column}}
