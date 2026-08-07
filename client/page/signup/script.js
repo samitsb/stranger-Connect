@@ -5,6 +5,7 @@ const hintText = document.getElementById('hint-text');
 const emailInput = document.getElementById('email');
 const passwordConfirmInput = document.getElementById('password-confirm');
 const nameInput = document.getElementById('name');
+const passwordInput = document.getElementById('password');
 
 if (form) {
     form.noValidate = true;
@@ -145,7 +146,20 @@ function validatePasswordConfirmation() {
     return true;
 }
 
-function validateForm(event) {
+function saveCredential(email, password) {
+    const stored = JSON.parse(localStorage.getItem('strangerConnectUsers') || '[]');
+    const existing = stored.find((entry) => entry.email.toLowerCase() === email.toLowerCase());
+
+    if (existing) {
+        return false;
+    }
+
+    stored.push({ email, password });
+    localStorage.setItem('strangerConnectUsers', JSON.stringify(stored));
+    return true;
+}
+
+async function validateForm(event) {
     event.preventDefault();
 
     const isNameValid = validateName();
@@ -156,8 +170,24 @@ function validateForm(event) {
 
     const isFormValid = isNameValid && isDobValid && isEmailValid && isPasswordValid && isPasswordMatchValid;
 
-    if (isFormValid) {
-        window.location.href = '../chat/chat.html';
+    if (!isFormValid) {
+        return;
+    }
+
+    try {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const saved = saveCredential(email, password);
+
+        if (!saved) {
+            setHint('hint-text', 'An account with that email already exists.', true);
+            return;
+        }
+
+        setHint('hint-text', 'Account created successfully.');
+        window.location.href = '../login/login.html';
+    } catch (error) {
+        setHint('hint-text', 'Unable to save credentials locally.', true);
     }
 }
 
@@ -182,7 +212,6 @@ if (nameInput) {
     nameInput.addEventListener('blur', validateName);
 }
 
-const passwordInput = document.getElementById('password');
 if (passwordInput) {
     passwordInput.addEventListener('input', validatePassword);
     passwordInput.addEventListener('blur', validatePassword);
