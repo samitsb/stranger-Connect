@@ -34,22 +34,36 @@
                 <p>We believe every conversation can spark something new. From quiet chats to bold ideas, StrangerConnect brings people together across interests, cultures, and backgrounds.</p>
                 <p>Whether you want to make a quick friend, practice a language, or just brighten your day, our community is built to make every exchange feel secure, welcoming, and fun.</p>
             </div>
-            <div class="overview-cards">
-                <div class="feature-card">
-                    <h4>Trusted experience</h4>
-                    <p>Curated matching and thoughtful guidelines help keep every interaction respectful and enjoyable.</p>
+
+            <div class="gallery" aria-label="Overview gallery">
+                <div class="gallery-stage">
+                    <div class="gallery-slide active">
+                        <h4>Trusted experience</h4>
+                        <p>Curated matching and thoughtful guidelines help keep every interaction respectful and enjoyable.</p>
+                    </div>
+                    <div class="gallery-slide">
+                        <h4>Quick connections</h4>
+                        <p>Jump into a new chat in seconds, with easy options for anonymized interaction or a more personal touch.</p>
+                    </div>
+                    <div class="gallery-slide">
+                        <h4>Community first</h4>
+                        <p>Our team is dedicated to supporting safe conversations and empowering users to express themselves with confidence.</p>
+                    </div>
+                    <div class="gallery-slide">
+                        <h4>Designed for all</h4>
+                        <p>Simple layouts, clear controls, and responsive design make StrangerConnect accessible on any device.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h4>Quick connections</h4>
-                    <p>Jump into a new chat in seconds, with easy options for anonymized interaction or a more personal touch.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Community first</h4>
-                    <p>Our team is dedicated to supporting safe conversations and empowering users to express themselves with confidence.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Designed for all</h4>
-                    <p>Simple layouts, clear controls, and responsive design make StrangerConnect accessible on any device.</p>
+
+                <div class="gallery-controls">
+                    <button class="gallery-btn gallery-btn-prev" type="button" aria-label="Previous slide">←</button>
+                    <div class="gallery-dots" aria-label="Slide navigation">
+                        <button class="gallery-dot active" type="button" data-index="0" aria-label="Go to slide 1"></button>
+                        <button class="gallery-dot" type="button" data-index="1" aria-label="Go to slide 2"></button>
+                        <button class="gallery-dot" type="button" data-index="2" aria-label="Go to slide 3"></button>
+                        <button class="gallery-dot" type="button" data-index="3" aria-label="Go to slide 4"></button>
+                    </div>
+                    <button class="gallery-btn gallery-btn-next" type="button" aria-label="Next slide">→</button>
                 </div>
             </div>
         </div>
@@ -84,5 +98,8 @@
             <p>&copy; 2026 StrangerConnect. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
