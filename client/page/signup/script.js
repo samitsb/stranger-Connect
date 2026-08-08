@@ -47,7 +47,7 @@ function updateAge() {
     ageInput.value = age >= 0 ? `${age}` : '';
 
     if (age < 18) {
-        setHint('hint-text', 'Only users 18+ are allowed to signin.', true);
+        setHint('hint-text', 'Only users 18+ are allowed to signup.', true);
         return false;
     }
 
@@ -64,7 +64,7 @@ function validateDateOfBirth() {
     }
 
     if (age === null || age < 18) {
-        setHint('hint-text', 'signin is restricted to 18+ users only.', true);
+        setHint('hint-text', 'signup is restricted to 18+ users only.', true);
         return false;
     }
 
